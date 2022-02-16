@@ -15,12 +15,22 @@
     </header>
     <main>
         <div class="main-container flex align-items  column">
-            <div class="meme-editor flex space">
+            <div class="meme-editor flex space align-items">
                 <div class="canvas-container">
                     <canvas width="400" height="400"></canvas>
                 </div>
-                <div class="contoroller flex column around">
+                <div class="contoroller flex column around align-items">
+                    <select class="line-select">
+                        <option value="top">Top line</option>
+                        <option value="bottom">Bottom</option>
+                    </select>
                     <input class="line-input" type="text" placeholder="Enter text here">
+                    <p>fill color</p>
+                    <input class="fill-color" type="color">
+                    <p>stroke color</p>
+                    <input class="stroke-color" type="color">
+                    <button class="font-increase">+</button>
+                    <button class="font-decrease">-</button>
                 </div>
             </div>
             <div class="gallery-container flex wrap even">

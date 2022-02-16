@@ -95,15 +95,81 @@ const gImgs = [{
 ];
 
 var keyWordSearchCountMap = {};
-var gMeme = {};
+var gMeme;
+//  {
+//     selectedImgId,
+//     selectedLineIdx,
+//     lines: [{
+//         txt,
+//         size,
+//         align,
+//         color
+//     }]
+// };
 
 
 function getMeme(id) {
 
-    const gMeme = gImgs.find(img => img.id === id)
-    return gMeme;
+    const meme = gImgs.find(img => img.id === id);
+    return meme;
 }
 
 function getImages() {
     return gImgs;
+}
+
+
+
+
+
+
+function setCurrMeme(meme) {
+    gMeme = {
+        selectedImgId: meme.id,
+        selectedLineIdx: 0,
+        lines: [{
+            txt: '',
+            size: null,
+            align: null,
+            color: null
+        }]
+    };
+    console.log(gMeme);
+}
+
+
+function updateCurrMeme(txt, linePos, font, textAlign = 'center', color) {
+    const lines = gMeme.lines;
+
+    if (linePos === 'top') {
+        gMeme.selectedLineIdx = 1;
+        lines[0].size = font;
+        lines[0].txt = txt;
+        lines[0].textAlign = textAlign;
+        lines[0].color = color;
+    } else {
+        gMeme.selectedLineIdx = 1;
+        const newLine = {
+            txt: txt,
+            size: font,
+            align: textAlign,
+            color: color
+        };
+        lines.length > 1 ? lines[1] = newLine : lines.push(newLine);
+        console.log(gMeme);
+    }
+
+
+
+
+    // gMeme = {
+    //     selectedImgId: meme.id,
+    //     selectedLineIdx: 0,
+    //     lines: [{
+    //         txt: '',
+    //         size: font,
+    //         align: align,
+    //         color: color
+    //     }]
+    // };
 }
