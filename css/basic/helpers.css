@@ -25,3 +25,7 @@
 .flex.even {
     justify-content: space-evenly;
 }
+
+.flex.around {
+    justify-content: space-around;
+}

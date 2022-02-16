@@ -11,12 +11,8 @@ function onInit() {
     gCanvas = document.querySelector('canvas');
     gCtx = gCanvas.getContext('2d');
     renderGallery();
-    addClickListener();
+    addEventListeners();
 }
-
-
-
-
 
 
 
@@ -29,11 +25,9 @@ function renderMeme(meme) {
     };
 }
 
-
 function renderGallery() {
     const elGallery = document.querySelector('.gallery-container');
     const images = getImages();
-
     var strHTML = '';
 
     images.forEach(image => {
@@ -41,6 +35,35 @@ function renderGallery() {
     });
     elGallery.innerHTML = strHTML;
 }
+
+
+
+function onImageClick(ev) {
+    const imgId = +ev.target.name;
+    var meme = getMeme(imgId);
+    renderMeme(meme);
+}
+
+
+function renderLine(ev) {
+    console.log(ev.target.value);
+    const txt = ev.target.value;
+    gCtx.lineWidth = 0.5;
+    gCtx.strokeStyle = 'black';
+    gCtx.fillStyle = 'white';
+    gCtx.font = '35px Arial';
+    gCtx.fillText(txt, 50, 50);
+    gCtx.strokeText(txt, 50, 50);
+
+}
+
+function addEventListeners() {
+    addClickListener();
+    addInputListener();
+
+}
+
+
 
 
 function addClickListener() {
@@ -51,8 +74,8 @@ function addClickListener() {
     });
 }
 
-function onImageClick(ev) {
-    const imgId = +ev.target.name;
-    var meme = getMeme(imgId);
-    renderMeme(meme);
+function addInputListener() {
+    var input = document.querySelector('.line-input');
+
+    input.addEventListener('change', renderLine);
 }
