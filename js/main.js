@@ -44,7 +44,9 @@ function renderGallery() {
 
 function onImageClick(ev) {
     const imgId = +ev.target.name;
-    var meme = getMeme(imgId);
+    const meme = getMeme(imgId);
+
+    toggleGallery();
     renderMeme(meme);
     setCurrMeme(meme);
 }
@@ -133,4 +135,9 @@ function setLine(ev) {
         gTxtPos.y = 300;
         gTxtPos.line = 'bottom'
     }
+}
+
+function toggleGallery() {
+    const elGallery = document.querySelector('.gallery-container');
+    elGallery.classList.toggle('slide-down');
 }

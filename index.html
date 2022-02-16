@@ -10,14 +10,17 @@
 </head>
 
 <body onload="onInit()">
-    <header>
-        <h1>Meme Generator</h1>
+    <header class='main-header flex '>
+        <ul class="clean-list">
+            <li><a href="#" onclick="toggleGallery()">Gallery</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
     </header>
     <main>
-        <div class="main-container flex align-items  column">
-            <div class="meme-editor flex space align-items">
+        <div class="main-container main-layout flex column even">
+            <div class="meme-editor flex even align-items">
                 <div class="canvas-container">
-                    <canvas width="400" height="400"></canvas>
+                    <canvas width="450" height="450"></canvas>
                 </div>
                 <div class="contoroller flex column around align-items">
                     <select class="line-select">
@@ -26,14 +29,14 @@
                     </select>
                     <input class="line-input" type="text" placeholder="Enter text here">
                     <p>fill color</p>
+                    <button class="font-decrease">-</button>
                     <input class="fill-color" type="color">
                     <p>stroke color</p>
                     <input class="stroke-color" type="color">
                     <button class="font-increase">+</button>
-                    <button class="font-decrease">-</button>
                 </div>
             </div>
-            <div class="gallery-container flex wrap even">
+            <div class="gallery-container main-layout flex wrap even">
             </div>
         </div>
 

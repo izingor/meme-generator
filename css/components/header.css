@@ -1,0 +1,5 @@
+.main-header {
+    height: 100px;
+    background-color: cadetblue;
+    justify-content: flex-end;
+}

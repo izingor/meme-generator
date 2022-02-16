@@ -1,10 +1,16 @@
 .gallery-container {
     background-color: aqua;
-    height: 55%;
-    width: 90%;
+    position: absolute;
+    z-index: 1;
+    height: 90vh;
+    transition: transform 0.7s;
 }
 
 .gallery-img {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.slide-down {
+    transform: translateY(100%);
 }
