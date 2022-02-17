@@ -14,3 +14,7 @@
 .slide-down {
     transform: translateY(100%);
 }
+
+.lock{
+    overflow: hidden;
+}

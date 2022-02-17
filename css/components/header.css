@@ -1,5 +1,9 @@
 .main-header {
-    height: 100px;
+    height: 10vh;
     background-color: cadetblue;
     justify-content: flex-end;
+}
+
+.main-header>ul>*{
+    margin-inline-end:50px ;
 }

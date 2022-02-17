@@ -96,16 +96,7 @@ const gImgs = [{
 
 var keyWordSearchCountMap = {};
 var gMeme;
-//  {
-//     selectedImgId,
-//     selectedLineIdx,
-//     lines: [{
-//         txt,
-//         size,
-//         align,
-//         color
-//     }]
-// };
+
 
 
 function getMeme(id) {
@@ -117,10 +108,6 @@ function getMeme(id) {
 function getImages() {
     return gImgs;
 }
-
-
-
-
 
 
 function setCurrMeme(meme) {
@@ -158,18 +145,4 @@ function updateCurrMeme(txt, linePos, font, textAlign = 'center', color) {
         lines.length > 1 ? lines[1] = newLine : lines.push(newLine);
         console.log(gMeme);
     }
-
-
-
-
-    // gMeme = {
-    //     selectedImgId: meme.id,
-    //     selectedLineIdx: 0,
-    //     lines: [{
-    //         txt: '',
-    //         size: font,
-    //         align: align,
-    //         color: color
-    //     }]
-    // };
 }

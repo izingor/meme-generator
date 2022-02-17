@@ -15,6 +15,7 @@ var gTxtPos = {
 function onInit() {
     gCanvas = document.querySelector('canvas');
     gCtx = gCanvas.getContext('2d');
+    gCtx.font = '30px Arial'
     renderGallery();
     addEventListeners();
 }
@@ -139,5 +140,8 @@ function setLine(ev) {
 
 function toggleGallery() {
     const elGallery = document.querySelector('.gallery-container');
+    const elBody = document.querySelector('body');
+
+    elBody.classList.toggle('lock');
     elGallery.classList.toggle('slide-down');
 }

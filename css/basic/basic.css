@@ -2,9 +2,15 @@
     box-sizing: border-box;
 }
 
+html{
+    /* overflow: hidden; */
+}
+
 body {
     margin: 0;
     text-align: center;
+    /* height: 100%; */
+    /* overflow: hidden; */
 }
 
 canvas {
