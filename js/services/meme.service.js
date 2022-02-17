@@ -99,7 +99,7 @@ var gMeme;
 
 
 
-function getMeme(id) {
+function getMeme(id = gMeme.id) {
 
     const meme = gImgs.find(img => img.id === id);
     return meme;
@@ -114,6 +114,7 @@ function setCurrMeme(meme) {
     gMeme = {
         selectedImgId: meme.id,
         selectedLineIdx: 0,
+        selectedUrl: meme.url,
         lines: [{
             txt: '',
             size: null,
@@ -121,15 +122,18 @@ function setCurrMeme(meme) {
             color: null
         }]
     };
-    console.log(gMeme);
 }
 
+function getCurrImg() {
+    // console.log(gMeme.selectedUrl);
+    return gMeme.selectedUrl;
+}
 
 function updateCurrMeme(txt, linePos, font, textAlign = 'center', color) {
     const lines = gMeme.lines;
 
     if (linePos === 'top') {
-        gMeme.selectedLineIdx = 1;
+        gMeme.selectedLineIdx = 0;
         lines[0].size = font;
         lines[0].txt = txt;
         lines[0].textAlign = textAlign;
@@ -145,4 +149,22 @@ function updateCurrMeme(txt, linePos, font, textAlign = 'center', color) {
         lines.length > 1 ? lines[1] = newLine : lines.push(newLine);
         console.log(gMeme);
     }
+}
+
+function updateLines(pos) {
+    const lines = gMeme.lines;
+    var txt = '';
+
+    if (lines.length < 2) return txt;
+
+    if (pos === 'top') {
+        lines[0].txt = '';
+        txt = lines[1].txt;
+
+    } else {
+        lines[1].txt = '';
+        txt = lines[0].txt;
+    }
+
+    return txt;
 }

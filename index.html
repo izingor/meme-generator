@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="css/style.css" />
-		<title>Meme Generator</title>
-	</head>
 
-	<body onload="onInit()">
-		<header class="main-header flex align-items">
-			<ul class="clean-list flex">
-				<li><a href="#" onclick="toggleGallery()">Gallery</a></li>
-				<li><a href="#">About</a></li>
-			</ul>
-		</header>
-		<main>
-			<div class="main-container main-layout flex column even">
-				<div class="meme-editor flex even align-items">
-					<div class="canvas-container">
-						<canvas width="450" height="450"></canvas>
-					</div>
-					<div class="contoroller">
-						<div class="line-control">
-							<select class="line-select">
-								<option value="top">Top line</option>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Meme Generator</title>
+</head>
+
+<body onload="onInit()">
+    <header class="main-header flex align-items">
+        <ul class="clean-list flex">
+            <li><a href="#" onclick="toggleGallery()">Gallery</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="main-container main-layout flex column even">
+            <div class="meme-editor flex even align-items">
+                <div class="canvas-container">
+                    <canvas width="450" height="450"></canvas>
+                </div>
+                <div class="contoroller">
+                    <div class="line-control flex justify-content align-items space">
+                        <select class="line-select">
+								<option value="top">Top</option>
 								<option value="bottom">Bottom</option>
 							</select>
-						</div>
-						<div class="txt-input">
-							<input
-								class="line-input"
-								type="text"
-								placeholder="Enter text here"
-							/>
-						</div>
-						<div class="color-control">
-                            <label for="fill">Fill color</label>
-							<input id="fill" class="fill-color" type="color" />
-                            <label for="">outline color</label>
-							<input id = "outline" class="stroke-color" type="color" />
-						</div>
-						<div class="font-control">
-							<button class="font-increase">+</button>
-							<button class="font-decrease">-</button>
-						</div>
-					</div>
-				</div>
-				<div class="gallery-container main-layout flex wrap even"></div>
-			</div>
-		</main>
-		<footer></footer>
+                        <button class="remove-btn">Remove</button>
+                    </div>
+                    <div class="txt-input flex align-items justify-content">
+                        <input class="line-input" type="text" placeholder="Enter text here" />
+                    </div>
+                    <div class="color-control flex  align-items  space">
+                        <div>
+                            <label for="fill">Fill</label>
+                            <input id="fill" class="fill-color" type="color" value="#FFFFFF" />
+                        </div>
+                        <div>
+                            <label for="">Outline</label>
+                            <input id="outline" class="stroke-color" type="color" value="#FFFFFF" />
+                        </div>
 
-		<script src="js/services/meme.service.js"></script>
-		<script src="js/main.js"></script>
-	</body>
+                    </div>
+                    <div class="font-control flex align-items justify-content">
+                        <button class="font-increase">+</button>
+                        <button class="font-decrease">-</button>
+                    </div>
+                    <div class="social-container"></div>
+                </div>
+            </div>
+            <div class="gallery-container main-layout flex wrap even"></div>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="js/services/events.service.js"></script>
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
 </html>

@@ -5,7 +5,7 @@ var gCtx;
 var gTxtPos = {
     line: 'top',
     align: 'center',
-    x: 100,
+    x: 150,
     y: 100
 };
 
@@ -15,19 +15,21 @@ var gTxtPos = {
 function onInit() {
     gCanvas = document.querySelector('canvas');
     gCtx = gCanvas.getContext('2d');
-    gCtx.font = '30px Arial'
+    gCtx.font = '30px Impact'
+    gCtx.fillStyle = '#FFFFFF'
     renderGallery();
     addEventListeners();
 }
 
 
 
-function renderMeme(meme) {
+function renderMeme(memeImg) {
     var img = new Image();
-    img.src = meme.url;
+    img.src = memeImg;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     };
+    gCtx.save();
 }
 
 function renderGallery() {
@@ -48,7 +50,7 @@ function onImageClick(ev) {
     const meme = getMeme(imgId);
 
     toggleGallery();
-    renderMeme(meme);
+    renderMeme(meme.url);
     setCurrMeme(meme);
 }
 
@@ -59,56 +61,6 @@ function renderTxt(ev) {
     gCtx.fillText(txt, gTxtPos.x, gTxtPos.y);
     gCtx.strokeText(txt, gTxtPos.x, gTxtPos.y);
     updateCurrMeme(txt, gTxtPos.line, gTxtPos.align, gCtx.fillStyle)
-}
-
-function addEventListeners() {
-    addImageListener();
-    addInputListener();
-    addColorListener();
-    addFontSizeListener();
-    addLineSelectorListener();
-}
-
-function addLineSelectorListener() {
-    const lineSelector = document.querySelector('.line-select');
-    lineSelector.addEventListener('change', setLine);
-}
-
-
-function addImageListener() {
-    const images = document.querySelectorAll('.gallery-img');
-
-    images.forEach(image => {
-        image.addEventListener('click', onImageClick);
-    });
-}
-
-
-
-function addInputListener() {
-    const input = document.querySelector('.line-input');
-
-    input.addEventListener('change', renderTxt);
-}
-
-
-
-function addColorListener() {
-    const fill = document.querySelector('.fill-color');
-    const stroke = document.querySelector('.stroke-color');
-
-    fill.addEventListener('change', (ev) => gCtx.fillStyle = ev.target.value);
-    stroke.addEventListener('change', (ev) => gCtx.strokeStyle = ev.target.value);
-}
-
-
-
-function addFontSizeListener() {
-    const increase = document.querySelector('.font-increase');
-    const decrease = document.querySelector('.font-decrease');
-
-    increase.addEventListener('click', changeFontSize);
-    decrease.addEventListener('click', changeFontSize);
 }
 
 
@@ -128,12 +80,12 @@ function changeFontSize(ev) {
 
 function setLine(ev) {
     if (ev.target.value === 'top') {
-        gTxtPos.x = 100;
+        gTxtPos.x = 150;
         gTxtPos.y = 100;
         gTxtPos.line = 'top'
     } else {
-        gTxtPos.x = 100;
-        gTxtPos.y = 300;
+        gTxtPos.x = 150;
+        gTxtPos.y = 400;
         gTxtPos.line = 'bottom'
     }
 }
@@ -144,4 +96,37 @@ function toggleGallery() {
 
     elBody.classList.toggle('lock');
     elGallery.classList.toggle('slide-down');
+}
+
+
+
+function removeLine() {
+    // gTxtPos.line;
+    const updatedTxt = updateLines(gTxtPos.line);
+    const currImg = getCurrImg();
+
+    renderMeme(currImg);
+    reverseLines(gTxtPos.line);
+
+
+    console.log(updatedTxt);
+
+    gCtx.fillText(updatedTxt, gTxtPos.x, gTxtPos.y);
+    gCtx.strokeText(updatedTxt, gTxtPos.x, gTxtPos.y);
+    reverseLines(gTxtPos.line);
+
+    console.log(gTxtPos.line);
+}
+
+
+function reverseLines(currLine) {
+    if (currLine === 'top') {
+        gTxtPos.x = 100;
+        gTxtPos.y = 300;
+        gTxtPos.line = 'bottom'
+    } else {
+        gTxtPos.x = 100;
+        gTxtPos.y = 100;
+        gTxtPos.line = 'top'
+    }
 }

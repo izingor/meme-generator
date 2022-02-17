@@ -1,34 +1,62 @@
 .contoroller {
     background-color: bisque;
-    width: 350px;
+    width: 400px;
     height: 500px;
-    display:grid;
-    grid-template-columns: repeat(6,1fr);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(8, 1fr);
-
+    padding: 10px;
 }
 
-.line-control{
-/* background-color: red; */
-grid-column: 3/4;
-grid-row: 2/3;
-
-}
-
-.txt-input{
-    grid-column: 2/3;
+.line-control {
+    background-color: red;
+    grid-column: 4/6;
     grid-row: 2/3;
-
+    width: 100%;
+    height: 100%;
 }
 
-.color-control{
-    grid-column: 2/4;
-    grid-row: 3/5;
-
-
+.txt-input {
+    width: 100%;
+    height: 100%;
+    background-color: lightsalmon;
+    grid-column: 1/4;
+    grid-row: 2/3;
 }
-.font-control{
-    grid-column: 1/2;
-    grid-row: 4/5;
 
+.color-control {
+    width: 100%;
+    height: 100%;
+    background-color: lightcyan;
+    grid-column: 1/4;
+    grid-row: 3/4;
+}
+
+.font-control {
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    grid-column: 5/6;
+    grid-row: 3/4;
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+.social-container {
+    background-color: aqua;
+    grid-column: 1/6;
+    grid-row: 6/8;
 }
