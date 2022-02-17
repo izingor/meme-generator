@@ -8,11 +8,13 @@ function addEventListeners() {
     addFontSizeListener();
     addLineSelectorListener();
     addRemoveListener();
+    addFontChangeListener();
 }
 
 function addLineSelectorListener() {
     const lineSelector = document.querySelector('.line-select');
-    lineSelector.addEventListener('change', setLine);
+
+    lineSelector.addEventListener('change', onSetLine);
 }
 
 function addImageListener() {
@@ -26,15 +28,15 @@ function addImageListener() {
 function addInputListener() {
     const input = document.querySelector('.line-input');
 
-    input.addEventListener('change', renderTxt);
+    input.addEventListener('keyup', onInput);
 }
 
 function addColorListener() {
     const fill = document.querySelector('.fill-color');
     const stroke = document.querySelector('.stroke-color');
 
-    fill.addEventListener('change', (ev) => gCtx.fillStyle = ev.target.value);
-    stroke.addEventListener('change', (ev) => gCtx.strokeStyle = ev.target.value);
+    fill.addEventListener('change', onColorChange);
+    stroke.addEventListener('change', onColorChange);
 }
 
 function addFontSizeListener() {
@@ -48,5 +50,11 @@ function addFontSizeListener() {
 function addRemoveListener() {
     const remove = document.querySelector('.remove-btn');
 
-    remove.addEventListener('click', removeLine)
+    remove.addEventListener('click', removeAllTxt)
+}
+
+
+function addFontChangeListener() {
+    const fontStyle = document.querySelector('.font-family-select');
+    fontStyle.addEventListener('change', setFontFamily)
 }

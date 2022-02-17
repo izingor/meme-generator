@@ -117,54 +117,48 @@ function setCurrMeme(meme) {
         selectedUrl: meme.url,
         lines: [{
             txt: '',
-            size: null,
-            align: null,
-            color: null
+            color: null,
+            x: null,
+            y: null
         }]
     };
 }
 
 function getCurrImg() {
-    // console.log(gMeme.selectedUrl);
     return gMeme.selectedUrl;
 }
 
-function updateCurrMeme(txt, linePos, font, textAlign = 'center', color) {
+function updateCurrMeme(txt, linePos, color, posX, posY) {
     const lines = gMeme.lines;
 
     if (linePos === 'top') {
         gMeme.selectedLineIdx = 0;
-        lines[0].size = font;
         lines[0].txt = txt;
-        lines[0].textAlign = textAlign;
         lines[0].color = color;
+        lines[0].x = posX;
+        lines[0].y = posY;
+
     } else {
         gMeme.selectedLineIdx = 1;
         const newLine = {
             txt: txt,
-            size: font,
-            align: textAlign,
-            color: color
+            color: color,
+            x: posX,
+            y: posY
         };
         lines.length > 1 ? lines[1] = newLine : lines.push(newLine);
-        console.log(gMeme);
     }
 }
 
-function updateLines(pos) {
-    const lines = gMeme.lines;
-    var txt = '';
+function removeLines() {
+    gMeme.lines = [{}];
+}
 
-    if (lines.length < 2) return txt;
-
-    if (pos === 'top') {
-        lines[0].txt = '';
-        txt = lines[1].txt;
-
-    } else {
-        lines[1].txt = '';
-        txt = lines[0].txt;
+function getCurrLines() {
+    const currLines = {
+        idx: gMeme.selectedLineIdx,
+        lines: gMeme.lines
     }
 
-    return txt;
+    return currLines;
 }

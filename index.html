@@ -20,15 +20,15 @@
         <div class="main-container main-layout flex column even">
             <div class="meme-editor flex even align-items">
                 <div class="canvas-container">
-                    <canvas width="450" height="450"></canvas>
+                    <canvas width="500" height="500"></canvas>
                 </div>
                 <div class="contoroller">
-                    <div class="line-control flex justify-content align-items space">
+                    <div class="line-control flex justify-content align-items even">
                         <select class="line-select">
 								<option value="top">Top</option>
 								<option value="bottom">Bottom</option>
 							</select>
-                        <button class="remove-btn">Remove</button>
+                        <button class="remove-btn round-btn">Clear</button>
                     </div>
                     <div class="txt-input flex align-items justify-content">
                         <input class="line-input" type="text" placeholder="Enter text here" />
@@ -45,10 +45,19 @@
 
                     </div>
                     <div class="font-control flex align-items justify-content">
-                        <button class="font-increase">+</button>
-                        <button class="font-decrease">-</button>
+                        <button class="font-increase round-btn">+</button>
+                        <button class="font-decrease round-btn">-</button>
                     </div>
-                    <div class="social-container"></div>
+                    <div class="social-container">
+                    </div>
+                    <div class="font-family-control flex justify-content align-items">
+                        <select class="font-family-select">
+                            <option value="Impact">Impact</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Verdana">Verdana</option>
+                            <option value="Courier">Courier New</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="gallery-container main-layout flex wrap even"></div>

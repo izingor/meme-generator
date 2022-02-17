@@ -1,20 +1,21 @@
 .gallery-container {
-    background-color: aqua;
+    background-color: var(--dark);
     position: absolute;
     z-index: 1;
     height: 90vh;
     transition: transform 0.7s;
+    padding-top: 15px;
 }
 
 .gallery-img {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 175px;
+    max-height: 175px;
 }
 
 .slide-down {
     transform: translateY(100%);
 }
 
-.lock{
+.lock {
     overflow: hidden;
 }

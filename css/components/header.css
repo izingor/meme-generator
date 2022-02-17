@@ -1,9 +1,10 @@
 .main-header {
-    height: 10vh;
-    background-color: cadetblue;
+    height: 7vh;
+    background-color: var(--yellow);
     justify-content: flex-end;
+    font-size: 1.4rem;
 }
 
-.main-header>ul>*{
-    margin-inline-end:50px ;
+.main-header>ul>* {
+    margin-inline-end: 50px;
 }
