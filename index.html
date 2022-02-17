@@ -10,7 +10,7 @@
 </head>
 
 <body onload="onInit()">
-    <header class="main-header flex align-items">
+    <header class="main-header flex align-items" id="top">
         <ul class="clean-list flex">
             <li><a href="#" onclick="toggleGallery()">Gallery</a></li>
             <li><a href="#">About</a></li>
@@ -19,7 +19,7 @@
     <main>
         <div class="main-container main-layout flex column even">
             <div class="meme-editor flex even align-items">
-                <div class="canvas-container">
+                <div class="canvas-container" id="canvas">
                     <canvas width="500" height="500"></canvas>
                 </div>
                 <div class="contoroller">

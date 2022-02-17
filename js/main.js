@@ -39,7 +39,7 @@ function renderGallery() {
     var strHTML = '';
 
     images.forEach(image => {
-        strHTML += `<img src = "${image.url}" class ="gallery-img" name = "${image.id}">`;
+        strHTML += `<img src = "${image.url}" href="#top" class ="gallery-img" name = "${image.id}">`;
     });
     elGallery.innerHTML = strHTML;
 }

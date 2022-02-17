@@ -5,8 +5,7 @@
 @import 'basic/basic.css';
 @import 'components/controller.css';
 @import 'components/buttons.css';
-@import 'components/meme-editor.css';
 @import 'components/header.css';
 @import 'components/gallery.css';
 @import 'components/main-container.css';
-@import 'basic/media-queries.css';
+@import 'basic/mq.css';

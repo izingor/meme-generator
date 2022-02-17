@@ -1,5 +1,5 @@
 .main-layout {
     margin: 0 auto;
-    width: 90vw;
-    /* height: 90vh; */
+    max-width: 1120px;
+    height: 90vh;
 }
