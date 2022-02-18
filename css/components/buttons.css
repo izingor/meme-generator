@@ -23,5 +23,9 @@
 
 .social-btn {
     width: 95px;
-    height: 50px;
+    height: 25px;
+}
+
+.upload-btn {
+    width: fit-content;
 }

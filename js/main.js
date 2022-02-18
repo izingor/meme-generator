@@ -47,7 +47,7 @@ function renderGallery() {
     var strHTML = '';
 
     images.forEach(image => {
-        strHTML += `<img src = "${image.url}" href="#top" class ="gallery-img" name = "${image.id}">`;
+        strHTML += `<a href ="#top"><img src = "${image.url}" href="#top" class ="gallery-img" name = "${image.id}"></a>`;
     });
     elGallery.innerHTML = strHTML;
 }
@@ -114,7 +114,7 @@ function toggleGallery() {
     elGallery.classList.toggle('slide-down');
     setTimeout(() => {
         elBody.classList.toggle('lock');
-    }, 1000);
+    }, 10);
 
 }
 
@@ -128,12 +128,12 @@ function removeAllTxt() {
 
 function changeLines(currLine = gTxtPos.line) {
     if (currLine === 'bottom') {
-        gTxtPos.x = 120;
-        gTxtPos.y = 400;
+        gTxtPos.x = 100;
+        gTxtPos.y = 350;
         gTxtPos.line = 'bottom';
     } else {
-        gTxtPos.x = 120;
-        gTxtPos.y = 100;
+        gTxtPos.x = 100;
+        gTxtPos.y = 150;
         gTxtPos.line = 'top';
     }
 }

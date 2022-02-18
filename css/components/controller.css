@@ -2,7 +2,7 @@
     background-color: var(--darklite);
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(7, 1fr);
     gap: 5px;
     padding: 10px;
     border: 2px solid var(--yellow);
@@ -61,5 +61,12 @@ input[type="color"]::-webkit-color-swatch {
 .social-container {
     background-color: var(--yellow);
     grid-column: 1/6;
-    grid-row: 6/8;
+    grid-row: 7/8;
+}
+
+.upload-file {
+    background-color: var(--yellow);
+    grid-column: 1/6;
+    grid-row: 6/7;
+    justify-content: center;
 }
