@@ -162,3 +162,15 @@ function getCurrLines() {
 
     return currLines;
 }
+
+
+
+
+
+//going to utils
+
+
+function randomId() {
+    const randomId = (Date.now() / (10 ** 5))
+    console.log(randomId);
+}

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 
 function addEventListeners() {
@@ -9,6 +9,11 @@ function addEventListeners() {
     addLineSelectorListener();
     addRemoveListener();
     addFontChangeListener();
+    addImageUploadListener();
+    addShareListener();
+
+    // addDownloadCanvas();
+    // addResizeListener();
 }
 
 function addLineSelectorListener() {
@@ -28,7 +33,7 @@ function addImageListener() {
 function addInputListener() {
     const input = document.querySelector('.line-input');
 
-    input.addEventListener('keyup', onInput);
+    input.addEventListener('keyup', onTxtInput);
 }
 
 function addColorListener() {
@@ -50,11 +55,34 @@ function addFontSizeListener() {
 function addRemoveListener() {
     const remove = document.querySelector('.remove-btn');
 
-    remove.addEventListener('click', removeAllTxt)
+    remove.addEventListener('click', removeAllTxt);
 }
 
 
 function addFontChangeListener() {
     const fontStyle = document.querySelector('.font-family-select');
-    fontStyle.addEventListener('change', setFontFamily)
+    fontStyle.addEventListener('change', setFontFamily);
+}
+
+
+function addDownloadCanvas() {
+    const elDownload = document.querySelector('.download');
+    elDownload.addEventListener('click', onDownload);
+}
+
+// function addResizeListener() {
+//     const elEditor = document.querySelector('html');
+//     elEditor.addEventListener('resize', resizeCanvas);
+// }
+
+
+function addImageUploadListener() {
+    const elUpload = document.querySelector('.file-input');
+    elUpload.addEventListener('change', onImgInput);
+}
+
+
+function addShareListener() {
+    const elShare = document.querySelector('.share-btn');
+    elShare.addEventListener('click', shareImg);
 }

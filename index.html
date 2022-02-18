@@ -22,7 +22,7 @@
                 <div class="canvas-container" id="canvas">
                     <canvas width="500" height="500"></canvas>
                 </div>
-                <div class="contoroller">
+                <div class="controller">
                     <div class="line-control flex justify-content align-items even">
                         <select class="line-select">
 								<option value="top">Top</option>
@@ -48,8 +48,15 @@
                         <button class="font-increase round-btn">+</button>
                         <button class="font-decrease round-btn">-</button>
                     </div>
-                    <div class="social-container">
+                    <div class="social-container flex justify-content align-items">
+                        <a href="#" onclick="onDownload(this)">
+                            <button class="round-btn social-btn download">Download</button>
+                        </a>
+                        <input type="file" class="file-input">
+                        <button class="round-btn social-btn">Upload</button>
                     </div>
+
+                    <button class="round-btn social-btn share-btn">Share</button>
                     <div class="font-family-control flex justify-content align-items">
                         <select class="font-family-select">
                             <option value="Impact">Impact</option>
@@ -64,7 +71,9 @@
         </div>
     </main>
     <footer></footer>
+
     <script src="js/services/events.service.js"></script>
+    <script src="js/services/upload.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/main.js"></script>
 </body>
