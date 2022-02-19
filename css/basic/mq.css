@@ -9,6 +9,16 @@
     }
     .controller {
         height: 300px;
+        width: 400px;
+    }
+    .main-header>ul>:first-child {
+        margin-inline-start: 50px;
+    }
+    .main-header>ul>:nth-child(2) {
+        margin-inline-start: 35px;
+    }
+    .meme-editor {
+        margin-top: 60px;
     }
 }
 
@@ -44,5 +54,11 @@
     }
     .controller {
         height: 404px;
+    }
+    .main-header>ul>:first-child {
+        margin-inline-start: 185px;
+    }
+    .main-header>ul>:nth-child(2) {
+        margin-inline-start: 50px;
     }
 }
