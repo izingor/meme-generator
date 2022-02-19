@@ -228,9 +228,9 @@ function onMove(ev) {
         gTxt.y = y;
         renderTxt();
     }
-    if ((x < 0 || x > gCanvas.width) ||
-        (y < 0 || y > gCanvas.height))
-        document.body.style.cursor = 'default';
+    if (x < 2 || x > gCanvas.width - 2) document.body.style.cursor = 'default';
+
+    if (y < 2 || y > gCanvas.height - 2) document.body.style.cursor = 'default';
 }
 
 function onDown(ev) {
