@@ -114,13 +114,13 @@ function setCurrMeme(meme) {
         selectedImgId: meme.id,
         selectedLineIdx: 0,
         selectedUrl: meme.url,
+        font: 'Impact',
         lines: [{
             txt: '',
             color: null,
             x: null,
             y: null,
-            isDrag: false
-                // area:null,
+            isDrag: false,
         }]
     };
 }
@@ -158,16 +158,18 @@ function removeLines() {
 }
 
 function getCurrLines() {
-    const currLines = {
+    var currLines = {
         idx: gMeme.selectedLineIdx,
         lines: gMeme.lines,
-        // isDrag: gMeme.lines
+        currFont: gMeme.font
     }
 
     return currLines;
 }
 
-
+function getCurrMeme() {
+    return gMeme;
+}
 
 
 

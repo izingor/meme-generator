@@ -2,15 +2,17 @@
 
 var gCanvas;
 var gCtx;
+var gFont;
 var draggedTxt = {
     isDrag: null,
     x: null,
     y: null
 }
-var gTxtPos = {
+var gTxt = {
     line: 'top',
     x: 50,
-    y: 100
+    y: 100,
+    font: null
 };
 
 
@@ -71,7 +73,7 @@ function onImageClick(ev) {
 
 function onTxtInput(ev) {
 
-    updateCurrMeme(ev.target.value, gTxtPos.line, gCtx.fillStyle, gTxtPos.x, gTxtPos.y);
+    updateCurrMeme(ev.target.value, gTxt.line, gCtx.fillStyle, gTxt.x, gTxt.y);
     renderTxt();
 }
 
@@ -89,27 +91,38 @@ function renderTxt(currText = getCurrLines()) {
 }
 
 
+function setFontFamily(ev) {
+    const currMeme = getCurrMeme();
+    var font = gCtx.font.split(' ');
+
+    gTxt.font = ev.target.value
+    currMeme.font = ev.target.value;
+    font[1] = ev.target.value;
+    var newFont = font.join(' ');
+    gCtx.font = newFont;
+    renderTxt();
+}
 
 function changeFontSize(ev) {
     const value = ev.target.innerText;
     var prevValue = parseInt(gCtx.font);
-
     if (value === '-') {
         prevValue--;
-        gCtx.font = prevValue + 'px Impact';
+        gCtx.font = prevValue + `px ${gTxt.font}`;
     } else {
         prevValue++;
-        gCtx.font = prevValue + 'px Impact';
+        gCtx.font = prevValue + `px ${gTxt.font}`;
     }
     renderTxt();
 }
 
 function onSetLine(ev) {
     const inputLine = document.querySelector('.line-input');
+    const currTxt = getCurrLines()
     var currLine = ev.target.value;
 
     inputLine.value = '';
-    changeLines(currLine);
+    changeLines(currLine, currTxt);
 }
 
 function toggleGallery() {
@@ -123,47 +136,37 @@ function toggleGallery() {
 
 }
 
-
-
 function removeAllTxt() {
     removeLines();
     renderMeme(getCurrImg());
 }
 
 
-function changeLines(currLine = gTxtPos.line) {
-    const currTxt = getCurrLines()
+function changeLines(currLine = gTxt.line, currTxt) {
     const lines = currTxt.lines;
     if (currLine === 'bottom') {
         if (lines[1]) {
-            gTxtPos.x = lines[1].x
-            gTxtPos.y = lines[1].y
+            gTxt.x = lines[1].x
+            gTxt.y = lines[1].y
         } else {
-            gTxtPos.x = 50;
-            gTxtPos.y = 350;
+            gTxt.x = 50;
+            gTxt.y = 350;
         }
-        gTxtPos.line = 'bottom';
+        gTxt.line = 'bottom';
         currTxt.idx = 1
     } else {
         if (lines[0].x) {
-            gTxtPos.x = lines[0].x
-            gTxtPos.y = lines[0].y
+            gTxt.x = lines[0].x
+            gTxt.y = lines[0].y
         } else {
-            gTxtPos.x = 50;
-            gTxtPos.y = 150;
+            gTxt.x = 50;
+            gTxt.y = 150;
         }
-        gTxtPos.line = 'top';
+        gTxt.line = 'top';
         currTxt.idx = 0
     }
 }
 
-function setFontFamily(ev) {
-    var font = gCtx.font.split(' ');
-    font[1] = ev.target.value;
-    var newFont = font.join(' ');
-    gCtx.font = newFont;
-    renderTxt();
-}
 
 function clearCanvas() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
@@ -211,15 +214,19 @@ function onImgInput(ev) {
 
 
 function onMove(ev) {
+    const x = ev.offsetX;
+    const y = ev.offsetY;
     if (!draggedTxt.isDrag) document.body.style.cursor = 'grab'
     if (draggedTxt.isDrag) {
-        draggedTxt.x = ev.offsetX
-        draggedTxt.y = ev.offsetY
-        gTxtPos.x = ev.offsetX
-        gTxtPos.y = ev.offsetY
+        draggedTxt.x = x;
+        draggedTxt.y = y;
+        gTxt.x = x;
+        gTxt.y = y;
         renderTxt();
     }
-
+    if ((x < 0 || x > gCanvas.width) ||
+        (y < 0 || y > gCanvas.height))
+        document.body.style.cursor = 'default'
 }
 
 function onDown(ev) {
