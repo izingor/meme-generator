@@ -12,7 +12,7 @@ function addEventListeners() {
     addShareListener();
     addMouseListeners();
     addSaveListener();
-    addYourMemeListener()
+    addYourMemeListener();
 
     // addDownloadCanvas();
     // addResizeListener();
@@ -101,11 +101,11 @@ function addMouseListeners() {
 
 function addSaveListener() {
     const elSave = document.querySelector('.save-btn');
-    elSave.addEventListener('click', onSave)
+    elSave.addEventListener('click', onSave);
 }
 
 
 function addYourMemeListener() {
-    const elMeme = document.querySelector('.memes')
-    elMeme.addEventListener('click', onYourMemes)
+    const elMeme = document.querySelector('.memes');
+    elMeme.addEventListener('click', onYourMemes);
 }

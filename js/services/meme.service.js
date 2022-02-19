@@ -117,7 +117,7 @@ function setDataBase() {
         gMemes = [];
         saveToStorage(STORAGE_KEY, gMemes);
     } else {
-        return
+        return;
     }
 }
 
@@ -150,7 +150,6 @@ function updateCurrMeme(txt, linePos, color, posX, posY) {
         lines[0].color = color;
         lines[0].x = posX;
         lines[0].y = posY;
-        // lines[0].area = posY;
 
     } else {
         gMeme.selectedLineIdx = 1;
@@ -184,7 +183,7 @@ function getCurrMeme() {
 
 
 function saveCurrMeme(data) {
-    const savedMemes = loadFromStorage(STORAGE_KEY)
+    const savedMemes = loadFromStorage(STORAGE_KEY);
     savedMemes.push(data);
     console.log(data);
 

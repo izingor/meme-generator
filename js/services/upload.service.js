@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 
 
@@ -6,7 +6,7 @@ function shareImg() {
     const imgDataUrl = gCanvas.toDataURL("image/jpeg");
 
     function onSuccess(uploadedImgUrl) {
-        const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+        const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);
         console.log(encodedUploadedImgUrl);
 
         setTimeout(() => {
@@ -20,7 +20,7 @@ function shareImg() {
 function doUploadImg(imgDataUrl, onSuccess) {
 
     const formData = new FormData();
-    formData.append('img', imgDataUrl)
+    formData.append('img', imgDataUrl);
 
     fetch('//ca-upload.com/here/upload.php', {
             method: 'POST',
@@ -29,9 +29,9 @@ function doUploadImg(imgDataUrl, onSuccess) {
         .then(res => res.text())
         .then((url) => {
             console.log('Got back live url:', url);
-            onSuccess(url)
+            onSuccess(url);
         })
         .catch((err) => {
-            console.error(err)
-        })
+            console.error(err);
+        });
 }

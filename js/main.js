@@ -262,8 +262,8 @@ function onSave() {
 function onYourMemes() {
     const memes = loadYourMemes();
     console.log(memes);
-    const elYourMemes = document.querySelector('.your-memes')
-    elYourMemes.classList.toggle('slide')
+    const elYourMemes = document.querySelector('.your-memes');
+    elYourMemes.classList.toggle('slide');
     toggleGallery();
     var strHTML = '';
 
