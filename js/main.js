@@ -2,9 +2,14 @@
 
 var gCanvas;
 var gCtx;
+var draggedTxt = {
+    isDrag: null,
+    x: null,
+    y: null
+}
 var gTxtPos = {
     line: 'top',
-    x: 150,
+    x: 50,
     y: 100
 };
 
@@ -70,8 +75,7 @@ function onTxtInput(ev) {
     renderTxt();
 }
 
-function renderTxt() {
-    const currText = getCurrLines();
+function renderTxt(currText = getCurrLines()) {
     const lines = currText.lines;
 
     renderMeme(getCurrImg());
@@ -103,6 +107,7 @@ function changeFontSize(ev) {
 function onSetLine(ev) {
     const inputLine = document.querySelector('.line-input');
     var currLine = ev.target.value;
+
     inputLine.value = '';
     changeLines(currLine);
 }
@@ -127,14 +132,28 @@ function removeAllTxt() {
 
 
 function changeLines(currLine = gTxtPos.line) {
+    const currTxt = getCurrLines()
+    const lines = currTxt.lines;
     if (currLine === 'bottom') {
-        gTxtPos.x = 100;
-        gTxtPos.y = 350;
+        if (lines[1]) {
+            gTxtPos.x = lines[1].x
+            gTxtPos.y = lines[1].y
+        } else {
+            gTxtPos.x = 50;
+            gTxtPos.y = 350;
+        }
         gTxtPos.line = 'bottom';
+        currTxt.idx = 1
     } else {
-        gTxtPos.x = 100;
-        gTxtPos.y = 150;
+        if (lines[0].x) {
+            gTxtPos.x = lines[0].x
+            gTxtPos.y = lines[0].y
+        } else {
+            gTxtPos.x = 50;
+            gTxtPos.y = 150;
+        }
         gTxtPos.line = 'top';
+        currTxt.idx = 0
     }
 }
 
@@ -188,4 +207,36 @@ function onImgInput(ev) {
             };
         };
     }
+}
+
+
+function onMove(ev) {
+    if (!draggedTxt.isDrag) document.body.style.cursor = 'grab'
+    if (draggedTxt.isDrag) {
+        draggedTxt.x = ev.offsetX
+        draggedTxt.y = ev.offsetY
+        gTxtPos.x = ev.offsetX
+        gTxtPos.y = ev.offsetY
+        renderTxt();
+    }
+
+}
+
+function onDown(ev) {
+    const currTxt = getCurrLines();
+    const lines = currTxt.lines;
+
+    lines.forEach(line => {
+        if (ev.offsetY <= line.y && ev.offsetY >= line.y - 25) {
+            line.isDrag = true;
+            draggedTxt = line;
+            document.body.style.cursor = 'grabbing'
+        }
+    });
+}
+
+function onUp() {
+    document.body.style.cursor = 'grab'
+    draggedTxt.isDrag = false;
+    renderTxt();
 }

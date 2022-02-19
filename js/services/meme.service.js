@@ -100,7 +100,6 @@ var gMeme;
 
 
 function getMeme(id = gMeme.id) {
-
     const meme = gImgs.find(img => img.id === id);
     return meme;
 }
@@ -119,7 +118,9 @@ function setCurrMeme(meme) {
             txt: '',
             color: null,
             x: null,
-            y: null
+            y: null,
+            isDrag: false
+                // area:null,
         }]
     };
 }
@@ -137,6 +138,7 @@ function updateCurrMeme(txt, linePos, color, posX, posY) {
         lines[0].color = color;
         lines[0].x = posX;
         lines[0].y = posY;
+        // lines[0].area = posY;
 
     } else {
         gMeme.selectedLineIdx = 1;
@@ -144,7 +146,8 @@ function updateCurrMeme(txt, linePos, color, posX, posY) {
             txt: txt,
             color: color,
             x: posX,
-            y: posY
+            y: posY,
+            // isDrag: false
         };
         lines.length > 1 ? lines[1] = newLine : lines.push(newLine);
     }
@@ -157,7 +160,8 @@ function removeLines() {
 function getCurrLines() {
     const currLines = {
         idx: gMeme.selectedLineIdx,
-        lines: gMeme.lines
+        lines: gMeme.lines,
+        // isDrag: gMeme.lines
     }
 
     return currLines;
