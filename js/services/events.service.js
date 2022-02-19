@@ -12,6 +12,7 @@ function addEventListeners() {
     addImageUploadListener();
     addShareListener();
     addMouseListeners();
+    addSaveListener();
 
     // addDownloadCanvas();
     // addResizeListener();
@@ -95,4 +96,10 @@ function addMouseListeners() {
     elCanvas.addEventListener('mousemove', onMove);
     elCanvas.addEventListener('mousedown', onDown);
     elCanvas.addEventListener('mouseup', onUp);
+}
+
+
+function addSaveListener() {
+    const elSave = document.querySelector('.save-btn');
+    elSave.addEventListener('click', onSave)
 }

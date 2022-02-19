@@ -1,4 +1,4 @@
-@import 'fonts/Balsamiq_Sans/BalsamiqSans-Regular.ttf';
+@import 'setup/typography.css';
 @import 'basic/helpers.css';
 @import 'setup/vars.css';
 @import 'layout/main-layout.css';

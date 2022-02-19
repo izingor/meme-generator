@@ -2,19 +2,20 @@
     background-color: var(--dark);
     position: absolute;
     z-index: 1;
-    transition: transform 0.8s;
+    transition: transform 0.3s;
     margin: 0 auto;
-    /* height: fit-content; */
+    top: 7vh;
+    height: fit-content;
+    padding: 20px;
 }
 
 .slide-down {
-    transform: translateY(150%);
+    transform: translateY(120%);
 }
 
 .lock {
     overflow: hidden;
 }
 
-.gallery-image {
-    margin-bottom: 5px;
-}
+
+/* .gallery-image {} */

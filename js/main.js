@@ -1,5 +1,8 @@
 'use strict';
 
+
+const STORAGE_KEY = 'memesDB';
+
 var gCanvas;
 var gCtx;
 var gFont;
@@ -246,4 +249,10 @@ function onUp() {
     document.body.style.cursor = 'grab'
     draggedTxt.isDrag = false;
     renderTxt();
+}
+
+
+function onSave() {
+
+    console.log('Hello');
 }

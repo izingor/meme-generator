@@ -1,4 +1,5 @@
 .main-header {
+    font-family: Luckiest;
     height: 7vh;
     background-color: var(--yellow);
     justify-content: flex-end;
@@ -7,4 +8,12 @@
 
 .main-header>ul>* {
     margin-inline-end: 50px;
+}
+
+.main-header>ul>* {
+    transition: 0.5s;
+}
+
+.main-header>ul>*:hover {
+    transform: scale(1.2);
 }
