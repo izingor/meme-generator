@@ -70,3 +70,15 @@
         margin-inline-start: 50px;
     }
 }
+
+@media (min-width:1300px) {
+    .main-layout {
+        max-width: 920px;
+    }
+    .main-header>ul>:first-child {
+        margin-inline-start: 350px;
+    }
+    .main-header>ul>:nth-child(2) {
+        margin-inline-start: 50px;
+    }
+}
