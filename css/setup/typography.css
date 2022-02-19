@@ -7,3 +7,13 @@
     font-family: Balsamiq;
     src: url(/fonts/Balsamiq_Sans/BalsamiqSans-Regular.ttf)
 }
+
+@font-face {
+    font-family: Poppins;
+    src: url(/fonts/Poppins/Poppins-Regular.ttf)
+}
+
+@font-face {
+    font-family: Roboto-light;
+    src: url(/fonts/Roboto/Roboto-Light.ttf)
+}

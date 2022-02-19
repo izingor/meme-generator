@@ -11,9 +11,9 @@
 
 <body onload="onInit()">
     <header class="main-header flex align-items" id="top">
-        <ul class="clean-list flex">
-            <li><a href="#" onclick="toggleGallery()">Gallery</a></li>
-            <li><a href="#">Memes</a></li>
+        <ul class="clean-list flex ">
+            <li class="flex align-items"><a href="#" onclick="toggleGallery()">Gallery</a></li>
+            <li class="flex align-items"><a href="#">Memes</a></li>
         </ul>
     </header>
     <main>
@@ -23,32 +23,32 @@
                     <canvas width="400" height="400"></canvas>
                 </div>
                 <div class="controller">
-                    <div class="line-control flex justify-content align-items even">
+                    <div class="line-control flex  align-items">
                         <select class="line-select">
-								<option value="top">Top</option>
-								<option value="bottom">Bottom</option>
+								<option value="top">Text 1</option>
+								<option value="bottom">Text 2</option>
 							</select>
-                        <button class="remove-btn round-btn">Clear</button>
+                        <!-- <button class="remove-btn round-btn">Clear</button> -->
                     </div>
-                    <div class="txt-input flex align-items justify-content">
+                    <div class="txt-input flex align-items ">
                         <input class="line-input" type="text" placeholder="Enter text here" />
                     </div>
-                    <div class="color-control flex  align-items  space">
-                        <div>
-                            <label for="fill">Fill</label>
-                            <input id="fill" class="fill-color" type="color" value="#FFFFFF" />
-                        </div>
-                        <div>
-                            <label for="">Outline</label>
-                            <input id="outline" class="stroke-color" type="color" value="#FFFFFF" />
-                        </div>
+                    <!-- <div class="color-control flex  align-items  space"> -->
+                    <div class="fill-color-box flex  align-items ">
+                        <input id="fill" class="fill-color" type="color" value="#FFFFFF" />
+                        <label for="fill">Fill</label>
+                    </div>
+                    <div class="stroke-color-box flex align-items justify-content space">
+                        <input id="outline" class="stroke-color" type="color" value="#FFFFFF" />
+                        <label for="">Outline</label>
+                    </div>
 
-                    </div>
+                    <!-- </div> -->
                     <div class="font-control flex align-items justify-content">
-                        <button class="font-increase round-btn">A+</button>
-                        <button class="font-decrease round-btn">A-</button>
+                        <button class="font-increase size-btn">A+</button>
+                        <button class="font-decrease size-btn">A-</button>
                     </div>
-                    <div class="social-container flex justify-content align-items">
+                    <div class="social-container flex justify-content align-items space">
                         <a href="#" onclick="onDownload(this)">
                             <button class="round-btn social-btn download">Download</button>
                         </a>
@@ -56,7 +56,7 @@
                         <button class="round-btn social-btn save-btn">Save</button>
                     </div>
                     <div class="upload-file flex  align-items justify-content column">
-                        <p>Upload your image</p>
+                        <!-- <p>Upload your image</p> -->
                         <input type="file" class="file-input">
                         <!-- <button class="round-btn upload-btn">Upload</button> -->
                     </div>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <div class="gallery-container main-layout flex wrap"></div>
+            <div class="gallery-container main-layout "></div>
         </div>
     </main>
     <footer></footer>

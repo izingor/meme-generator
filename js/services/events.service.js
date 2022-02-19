@@ -7,7 +7,7 @@ function addEventListeners() {
     addColorListener();
     addFontSizeListener();
     addLineSelectorListener();
-    addRemoveListener();
+    // addRemoveListener();
     addFontChangeListener();
     addImageUploadListener();
     addShareListener();

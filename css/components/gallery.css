@@ -1,11 +1,16 @@
 .gallery-container {
-    background-color: var(--dark);
+    background-color: white;
     position: absolute;
-    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    column-gap: 10px;
+    z-index: 2;
     transition: transform 0.3s;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     top: 7vh;
-    height: fit-content;
+    width: 90vw;
+    min-height: fit-content;
     padding: 20px;
 }
 
@@ -17,5 +22,17 @@
     overflow: hidden;
 }
 
+.gallery-img {
+    border-radius: 5px;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+}
 
-/* .gallery-image {} */
+.gallery-img:hover {
+    background: aqua;
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    filter: grayscale(0%);
+}

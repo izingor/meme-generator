@@ -133,9 +133,9 @@ function toggleGallery() {
     const elBody = document.querySelector('body');
 
     elGallery.classList.toggle('slide-down');
-    setTimeout(() => {
-        elBody.classList.toggle('lock');
-    }, 10);
+    // setTimeout(() => {
+    elBody.classList.toggle('lock');
+    // }, 10);
 
 }
 
