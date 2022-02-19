@@ -1,7 +1,6 @@
 'use strict';
 
 
-const STORAGE_KEY = 'memesDB';
 
 var gCanvas;
 var gCtx;
@@ -10,7 +9,7 @@ var draggedTxt = {
     isDrag: null,
     x: null,
     y: null
-}
+};
 var gTxt = {
     line: 'top',
     x: 50,
@@ -23,6 +22,7 @@ function onInit() {
 
     renderGallery();
     addEventListeners();
+    setDataBase();
 }
 
 
@@ -57,7 +57,7 @@ function renderGallery() {
     var strHTML = '';
 
     images.forEach(image => {
-        strHTML += `<a href ="#top"><img src = "${image.url}" href="#top" class ="gallery-img" name = "${image.id}"></a>`;
+        strHTML += `<a href ="#top"><img src = "${image.url}"  class ="gallery-img" name = "${image.id}"></a>`;
     });
     elGallery.innerHTML = strHTML;
 }
@@ -98,7 +98,7 @@ function setFontFamily(ev) {
     const currMeme = getCurrMeme();
     var font = gCtx.font.split(' ');
 
-    gTxt.font = ev.target.value
+    gTxt.font = ev.target.value;
     currMeme.font = ev.target.value;
     font[1] = ev.target.value;
     var newFont = font.join(' ');
@@ -121,7 +121,7 @@ function changeFontSize(ev) {
 
 function onSetLine(ev) {
     const inputLine = document.querySelector('.line-input');
-    const currTxt = getCurrLines()
+    const currTxt = getCurrLines();
     var currLine = ev.target.value;
 
     inputLine.value = '';
@@ -133,9 +133,9 @@ function toggleGallery() {
     const elBody = document.querySelector('body');
 
     elGallery.classList.toggle('slide-down');
-    // setTimeout(() => {
-    elBody.classList.toggle('lock');
-    // }, 10);
+    setTimeout(() => {
+        elBody.classList.toggle('lock');
+    }, 150);
 
 }
 
@@ -149,24 +149,24 @@ function changeLines(currLine = gTxt.line, currTxt) {
     const lines = currTxt.lines;
     if (currLine === 'bottom') {
         if (lines[1]) {
-            gTxt.x = lines[1].x
-            gTxt.y = lines[1].y
+            gTxt.x = lines[1].x;
+            gTxt.y = lines[1].y;
         } else {
             gTxt.x = 50;
             gTxt.y = 350;
         }
         gTxt.line = 'bottom';
-        currTxt.idx = 1
+        currTxt.idx = 1;
     } else {
         if (lines[0].x) {
-            gTxt.x = lines[0].x
-            gTxt.y = lines[0].y
+            gTxt.x = lines[0].x;
+            gTxt.y = lines[0].y;
         } else {
             gTxt.x = 50;
             gTxt.y = 150;
         }
         gTxt.line = 'top';
-        currTxt.idx = 0
+        currTxt.idx = 0;
     }
 }
 
@@ -207,6 +207,7 @@ function onImgInput(ev) {
         reader.onloadend = (ev) => {
             var img = new Image();
             img.src = ev.target.result;
+            // console.log(img.src);
             img.onload = () => {
                 gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
                 setCurrMeme({ id: 100, url: img.src });
@@ -219,7 +220,7 @@ function onImgInput(ev) {
 function onMove(ev) {
     const x = ev.offsetX;
     const y = ev.offsetY;
-    if (!draggedTxt.isDrag) document.body.style.cursor = 'grab'
+    if (!draggedTxt.isDrag) document.body.style.cursor = 'grab';
     if (draggedTxt.isDrag) {
         draggedTxt.x = x;
         draggedTxt.y = y;
@@ -229,7 +230,7 @@ function onMove(ev) {
     }
     if ((x < 0 || x > gCanvas.width) ||
         (y < 0 || y > gCanvas.height))
-        document.body.style.cursor = 'default'
+        document.body.style.cursor = 'default';
 }
 
 function onDown(ev) {
@@ -240,19 +241,34 @@ function onDown(ev) {
         if (ev.offsetY <= line.y && ev.offsetY >= line.y - 25) {
             line.isDrag = true;
             draggedTxt = line;
-            document.body.style.cursor = 'grabbing'
+            document.body.style.cursor = 'grabbing';
         }
     });
 }
 
 function onUp() {
-    document.body.style.cursor = 'grab'
+    document.body.style.cursor = 'grab';
     draggedTxt.isDrag = false;
     renderTxt();
 }
 
 
 function onSave() {
+    const data = gCanvas.toDataURL();
+    saveCurrMeme(data);
+}
 
-    console.log('Hello');
+
+function onYourMemes() {
+    const memes = loadYourMemes();
+    console.log(memes);
+    const elYourMemes = document.querySelector('.your-memes')
+    elYourMemes.classList.toggle('slide')
+    toggleGallery();
+    var strHTML = '';
+
+    memes.forEach(meme => {
+        strHTML += `<img src = "${meme}" class ="your-meme-img">`;
+    });
+    elYourMemes.innerHTML = strHTML;
 }

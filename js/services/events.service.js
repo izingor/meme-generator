@@ -7,12 +7,12 @@ function addEventListeners() {
     addColorListener();
     addFontSizeListener();
     addLineSelectorListener();
-    // addRemoveListener();
     addFontChangeListener();
     addImageUploadListener();
     addShareListener();
     addMouseListeners();
     addSaveListener();
+    addYourMemeListener()
 
     // addDownloadCanvas();
     // addResizeListener();
@@ -102,4 +102,10 @@ function addMouseListeners() {
 function addSaveListener() {
     const elSave = document.querySelector('.save-btn');
     elSave.addEventListener('click', onSave)
+}
+
+
+function addYourMemeListener() {
+    const elMeme = document.querySelector('.memes')
+    elMeme.addEventListener('click', onYourMemes)
 }

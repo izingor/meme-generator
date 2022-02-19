@@ -10,14 +10,14 @@
 </head>
 
 <body onload="onInit()">
-    <header class="main-header flex align-items" id="top">
+    <header class="main-header flex align-items">
         <ul class="clean-list flex ">
             <li class="flex align-items"><a href="#" onclick="toggleGallery()">Gallery</a></li>
-            <li class="flex align-items"><a href="#">Memes</a></li>
+            <li class="flex align-items memes"><a href="#">Memes</a></li>
         </ul>
     </header>
     <main>
-        <div class="main-container main-layout flex column even">
+        <div class="main-container main-layout flex column even" id="top">
             <div class="meme-editor flex even align-items">
                 <div class="canvas-container" id="canvas">
                     <canvas width="400" height="400"></canvas>
@@ -38,8 +38,8 @@
                         <input id="fill" class="fill-color" type="color" value="#FFFFFF" />
                         <label for="fill">Fill</label>
                     </div>
-                    <div class="stroke-color-box flex align-items justify-content space">
-                        <input id="outline" class="stroke-color" type="color" value="#FFFFFF" />
+                    <div class="stroke-color-box flex align-items ">
+                        <input id="outline" class="stroke-color" type="color" value="#000000" />
                         <label for="">Outline</label>
                     </div>
 
@@ -56,9 +56,7 @@
                         <button class="round-btn social-btn save-btn">Save</button>
                     </div>
                     <div class="upload-file flex  align-items justify-content column">
-                        <!-- <p>Upload your image</p> -->
                         <input type="file" class="file-input">
-                        <!-- <button class="round-btn upload-btn">Upload</button> -->
                     </div>
 
                     <div class="font-family-control flex justify-content align-items">
@@ -72,11 +70,15 @@
                 </div>
             </div>
             <div class="gallery-container main-layout "></div>
+            <div class="your-memes main-layout flex wrap justify-content even">
+
+            </div>
         </div>
     </main>
     <footer></footer>
 
     <script src="js/services/events.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
     <script src="js/services/upload.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/main.js"></script>

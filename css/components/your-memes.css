@@ -1,0 +1,27 @@
+.your-memes {
+    background-color: white;
+    height: 90vh;
+    width: 100%;
+    z-index: 2;
+    position: absolute;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    transition: .9s;
+    visibility: hidden;
+    opacity: 0;
+    margin-top: 60px;
+    border: 1px solid #DDDDDD;
+    border-radius: 15px;
+}
+
+.slide {
+    opacity: 100;
+    visibility: visible;
+}
+
+.your-meme-img {
+    height: 175px;
+    width: 175px;
+    border-radius: 5px;
+}

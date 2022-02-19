@@ -94,9 +94,12 @@ const gImgs = [{
 
 ];
 
+const STORAGE_KEY = 'memesDB';
+
+
 var keyWordSearchCountMap = {};
 var gMeme;
-
+var gMemes;
 
 
 function getMeme(id = gMeme.id) {
@@ -108,6 +111,15 @@ function getImages() {
     return gImgs;
 }
 
+function setDataBase() {
+    const db = loadFromStorage(STORAGE_KEY);
+    if (!db) {
+        gMemes = [];
+        saveToStorage(STORAGE_KEY, gMemes);
+    } else {
+        return
+    }
+}
 
 function setCurrMeme(meme) {
     gMeme = {
@@ -147,7 +159,6 @@ function updateCurrMeme(txt, linePos, color, posX, posY) {
             color: color,
             x: posX,
             y: posY,
-            // isDrag: false
         };
         lines.length > 1 ? lines[1] = newLine : lines.push(newLine);
     }
@@ -162,7 +173,7 @@ function getCurrLines() {
         idx: gMeme.selectedLineIdx,
         lines: gMeme.lines,
         currFont: gMeme.font
-    }
+    };
 
     return currLines;
 }
@@ -172,11 +183,15 @@ function getCurrMeme() {
 }
 
 
+function saveCurrMeme(data) {
+    const savedMemes = loadFromStorage(STORAGE_KEY)
+    savedMemes.push(data);
+    console.log(data);
 
-//going to utils
+    saveToStorage(STORAGE_KEY, savedMemes);
+}
 
-
-function randomId() {
-    const randomId = (Date.now() / (10 ** 5))
-    console.log(randomId);
+function loadYourMemes() {
+    const memes = loadFromStorage(STORAGE_KEY);
+    return memes;
 }
