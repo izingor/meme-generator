@@ -1,8 +1,4 @@
 @media (max-width:920px) {
-    /* .gallery-img {
-        max-width: 380px;
-        max-height: 380px;
-    } */
     .meme-editor {
         flex-direction: column;
     }
