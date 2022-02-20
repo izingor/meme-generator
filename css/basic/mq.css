@@ -5,7 +5,6 @@
     } */
     .meme-editor {
         flex-direction: column;
-        /* margin-top: 20px; */
     }
     .controller {
         height: 300px;
@@ -32,9 +31,12 @@
     .gallery-container {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
-    /* .gallery-img {
-        max-width: 200px;
-        max-height: 200px; */
+    .main-header>ul>:first-child {
+        margin-inline-start: 50px;
+    }
+    .main-header>ul>:nth-child(2) {
+        margin-inline-start: 35px;
+    }
 }
 
 @media (min-width:720px) {
@@ -44,10 +46,6 @@
     .gallery-container {
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     }
-    /* .gallery-img {
-        max-width: 175px;
-        max-height: 175px;
-    } */
 }
 
 @media (min-width:920px) {
@@ -63,22 +61,10 @@
     .controller {
         height: 404px;
     }
-    .main-header>ul>:first-child {
-        margin-inline-start: 185px;
-    }
-    .main-header>ul>:nth-child(2) {
-        margin-inline-start: 50px;
-    }
 }
 
 @media (min-width:1300px) {
     .main-layout {
         max-width: 920px;
-    }
-    .main-header>ul>:first-child {
-        margin-inline-start: 350px;
-    }
-    .main-header>ul>:nth-child(2) {
-        margin-inline-start: 50px;
     }
 }

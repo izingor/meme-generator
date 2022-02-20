@@ -127,12 +127,13 @@ function setCurrMeme(meme) {
         selectedLineIdx: 0,
         selectedUrl: meme.url,
         font: 'Impact',
+        fill: 'white',
+        stroke: 'black',
         lines: [{
             txt: '',
-            color: null,
             x: null,
             y: null,
-            isDrag: false,
+            isDrag: null
         }]
     };
 }
@@ -141,25 +142,25 @@ function getCurrImg() {
     return gMeme.selectedUrl;
 }
 
-function updateCurrMeme(txt, linePos, color, posX, posY) {
+function updateCurrMeme(txt, linePos, fill, stroke, posX, posY) {
     const lines = gMeme.lines;
+    const newLine = {
+        txt: txt,
+        x: posX,
+        y: posY,
+        isDrag: null
+
+    };
 
     if (linePos === 'top') {
         gMeme.selectedLineIdx = 0;
-        lines[0].txt = txt;
-        lines[0].color = color;
-        lines[0].x = posX;
-        lines[0].y = posY;
-
-    } else {
+        lines[0] = newLine;
+    } else if (linePos === 'mid') {
         gMeme.selectedLineIdx = 1;
-        const newLine = {
-            txt: txt,
-            color: color,
-            x: posX,
-            y: posY,
-        };
         lines.length > 1 ? lines[1] = newLine : lines.push(newLine);
+    } else {
+        gMeme.selectedLineIdx = 2;
+        lines.length > 2 ? lines[2] = newLine : lines.push(newLine);
     }
 }
 
@@ -184,7 +185,8 @@ function getCurrMeme() {
 
 function saveCurrMeme(data) {
     const savedMemes = loadFromStorage(STORAGE_KEY);
-    savedMemes.push(data);
+    const id = makeId(4);
+    savedMemes.push({ id: id, img: data });
     console.log(data);
 
     saveToStorage(STORAGE_KEY, savedMemes);

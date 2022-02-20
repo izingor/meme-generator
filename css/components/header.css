@@ -2,12 +2,15 @@
     font-family: Poppins;
     height: 7vh;
     background-color: white;
-    justify-content: flex-start;
     font-size: 1.3rem;
     width: 100vw;
     position: fixed;
     z-index: 5;
     border: 1px solid #DDDDDD;
+}
+
+.header-list {
+    align-self: center;
 }
 
 .main-header>ul>* {
@@ -18,6 +21,3 @@
     font-weight: 600;
     box-shadow: inset 0 -4px #06FF00;
 }
-
-
-/* .main-header>ul> */

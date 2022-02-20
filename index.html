@@ -10,10 +10,11 @@
 </head>
 
 <body onload="onInit()">
-    <header class="main-header flex align-items ">
-        <ul class="clean-list flex ">
+    <header class="main-header">
+
+        <ul class="clean-list flex  main-layout header-list">
             <li class="flex align-items"><a href="#" onclick="toggleGallery()">Gallery</a></li>
-            <li class="flex align-items memes"><a href="#">Memes</a></li>
+            <li class="flex align-items memes"><a href="#">Your Memes</a></li>
         </ul>
     </header>
     <main>
@@ -26,14 +27,14 @@
                     <div class="line-control flex  align-items">
                         <select class="line-select">
 								<option value="top">Text 1</option>
-								<option value="bottom">Text 2</option>
+								<option value="mid">Text 2</option>
+								<option value="bottom">Text 3</option>
 							</select>
                         <!-- <button class="remove-btn round-btn">Clear</button> -->
                     </div>
                     <div class="txt-input flex align-items ">
                         <input class="line-input" type="text" placeholder="Enter text here" />
                     </div>
-                    <!-- <div class="color-control flex  align-items  space"> -->
                     <div class="fill-color-box flex  align-items ">
                         <input id="fill" class="fill-color" type="color" value="#FFFFFF" />
                         <label for="fill">Fill</label>
@@ -43,7 +44,6 @@
                         <label for="">Outline</label>
                     </div>
 
-                    <!-- </div> -->
                     <div class="font-control flex align-items justify-content">
                         <button class="font-increase size-btn">A+</button>
                         <button class="font-decrease size-btn">A-</button>
@@ -76,12 +76,12 @@
         </div>
     </main>
     <footer></footer>
-
+    <script src="js/services/utils.service.js"></script>
     <script src="js/services/events.service.js"></script>
     <script src="js/services/storage.service.js"></script>
     <script src="js/services/upload.service.js"></script>
     <script src="js/services/meme.service.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/meme.controller.js"></script>
 </body>
 
 </html>

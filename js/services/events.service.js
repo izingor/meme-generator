@@ -42,8 +42,8 @@ function addColorListener() {
     const elFill = document.querySelector('.fill-color');
     const elStroke = document.querySelector('.stroke-color');
 
-    elFill.addEventListener('change', onColorChange);
-    elStroke.addEventListener('change', onColorChange);
+    elFill.addEventListener('input', onColorChange);
+    elStroke.addEventListener('input', onColorChange);
 }
 
 function addFontSizeListener() {
